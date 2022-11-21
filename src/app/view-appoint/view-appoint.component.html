@@ -1,0 +1,33 @@
+<h1>List of Appointments</h1>
+<table [cellPadding]="10" [cellSpacing]="10" *ngIf="value" border="1">
+    <tr>
+        <th>Sr no.</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Trainer pref.</th>
+        <th>Physio required</th>
+        <th>Package</th>
+        <th>Week</th>
+        <th>Amount</th>
+    </tr>
+
+    <tr *ngFor="let a of list1; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{a.name}}</td>
+        <td>{{a.phno}}</td>
+        <td>{{a.address}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.age}}</td>
+        <td>{{a.trainer}}</td>
+        <td>{{a.physio}}</td>
+        <td>{{a.radio}}</td>
+        <td>{{a.weeks}}</td>
+        <td>{{a.amount}}</td>
+    </tr>
+    
+</table>
+<p *ngIf="value==false">No Appointments</p>
+

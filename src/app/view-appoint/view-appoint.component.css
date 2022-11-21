@@ -1,0 +1,24 @@
+h1{
+    padding-top: 30px;
+    text-align: center;
+    color:rgb(128, 0, 255);
+}
+table {
+    position:absolute;
+    margin-left: 10%;
+    margin-top:2%;
+    border: 2px solid;
+    border-color:grey;
+}
+p{
+    color:black;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 3%;
+    
+}
+tr{
+    border-bottom:1pt solid black;
+    border-color: grey;
+
+}

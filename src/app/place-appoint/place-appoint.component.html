@@ -1,0 +1,78 @@
+<h1>Place an Appointment</h1>
+<form class="container" #myform="ngForm">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" [(ngModel)]="form.name" #name="ngModel" required>
+   
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email"[(ngModel)]="form.email" #email="ngModel" required>
+
+    <label for="Age">Age</label>
+    <input type="text" id="age" name="age" [(ngModel)]="form.age" #age="ngModel" required>
+    <br><br>
+
+    <label for="phno">Ph no.</label>
+    <input type="text" id="phno" name="phno" [(ngModel)]="form.phno" #phno="ngModel"required>
+
+
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" [(ngModel)]="form.address" #address="ngModel" required>
+
+    <label for="city">Pincode</label>
+    <input type="text" id="city" name="city" [(ngModel)]="form.pincode" #city="ngModel" required>
+
+    <div id="validation" *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">Name field must be valid</div>
+    <div id="validation" *ngIf="phno.invalid && (phno.dirty || phno.touched)" class="text-danger">Phone no. field must be valid</div>
+    <div id="validation" *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">Email field must be valid</div>
+    <div id="validation" *ngIf="age.invalid && (age.dirty || age.touched)" class="text-danger">Age field must be valid</div>
+    <div id="validation" *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">Address field must be valid</div>
+    <div id="validation" *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">Please provide pincode</div>
+
+    <br><br>
+
+    <label>Trainer Preference : </label>
+    <div class="rad">
+    <input type="radio" id="male" name="trainer" value="Male" [(ngModel)]="form.trainer" #trainer="ngModel" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="trainer" value="Female" [(ngModel)]="form.trainer" #trainer="ngModel" required>
+    <label for="female">Female</label>
+    <input type="radio" id="nopref" name="trainer" value="No Preference" [(ngModel)]="form.trainer" #trainer="ngModel" required>
+    <label for="nopref">No Preference</label>
+    </div>
+    <br>
+
+    
+    <label>Need Physiotherapist : </label>
+    <div class="rad">
+    <input type="radio" id="yes" name="physio" value="yes" [(ngModel)]="form.physio" #physio="ngModel" required>
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="physio" value="no" [(ngModel)]="form.physio" #physio="ngModel" required>
+    <label for="no">No</label>
+    </div>
+    <br>
+
+    <label>Select Package : </label><br>
+    <div class="rad">
+    <input type="radio" id="one" name="package" value="one session" [(ngModel)]="form.radio" #radio="ngModel" required>
+    <label for="one">One time(rs. 500)</label><br>
+    <input  type="radio"  id="four" name="package" value="four sessions" [(ngModel)]="form.radio" #radio="ngModel" required>
+    <label for="four">Four time per week(rs.400 per session)</label><br>
+    <input type="radio" id="five" name="package" value="five sessions" [(ngModel)]="form.radio" #radio="ngModel" required>
+    <label for="five">Five time per week(rs.300 per session)</label>
+    </div>
+    <br><br>
+
+    <label for="weeks" *ngIf="form.radio==='four sessions'|| form.radio==='five sessions'">Weeks</label>
+    <input type="text" *ngIf="form.radio==='four sessions'||form.radio==='five sessions'" id="weeks" name="weeks" [(ngModel)]="form.weeks" #weeks="ngModel" placeholder="Should be greater than '1'"  required>
+    <div id="validation" *ngIf="(form.radio==='four sessions'||form.radio==='five sessions') && form.weeks<2" class="text-danger">Weeks field must be valid</div>
+
+    <label for="amount">Amount</label>
+    <input type="text"  disabled id="amount" name="amount" value={{form.amount}}  required>
+    <button class= "btn btn-success" (click)="getamount()" >Calculate</button>
+
+    <br><br>
+
+    <button [disabled]="myform.form.invalid" class= "btn btn-danger" (click)="submit()" type="submit">Submit</button>
+
+
+
+</form>

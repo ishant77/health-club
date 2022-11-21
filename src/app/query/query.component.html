@@ -1,0 +1,22 @@
+<h1>Drop a query !</h1>
+<form class="container" #myform="ngForm">
+    <label>Your Name</label>
+    <input type="text" name="name" id="name" [(ngModel)]="form.name" #name="ngModel" required>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">Name field must be valid</div><br><br>
+
+    <label for="email">Your Email</label>
+    <input type="text" id="email" name="email"[(ngModel)]="form.email" #email="ngModel" required>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">Email field must be valid</div><br><br>
+
+    <label for="phno">Your Ph no.</label>
+    <input type="text" id="phno" name="phno" [(ngModel)]="form.phno" #phno="ngModel" required>
+    <div *ngIf="phno.invalid && (phno.dirty || phno.touched)" class="text-danger">Phno field must be valid</div><br><br>
+
+    <label for="message">Message</label><br>
+    <textarea rows="4" cols="50" id="message" name="message" [(ngModel)]="form.message" #message="ngModel" required></textarea>
+    <div *ngIf="message.invalid && (message.dirty || message.touched)" class="text-danger">Message field must be valid</div><br><br>
+
+    <button [disabled]="myform.form.invalid" class= "btn btn-danger" (click)="submit()" type="submit">Submit</button>
+
+    
+    </form>
